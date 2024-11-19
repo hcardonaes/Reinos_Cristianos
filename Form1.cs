@@ -22,20 +22,21 @@ namespace Reinos_Cristianos
 
             connectionString = $"Data Source={dbPath};Version=3;";
             LoadComboBoxPersonajes();
-            LoadCombosParentesco();
-            LoadTipoRelacionParentescoComboBox();
-            LoadComboBoxCargos();
-            LoadParientesComboBox();
-            LoadTipoParentescoComboBox();
+            //--------------------------------
+            LoadCombosPersonajesParentesco();
+            LoadTiposParentescoComboBox();
+           // LoadParientesComboBox();
+            LoadTipoRelacionComboBox();
             LoadRelativosComboBox();
+            LoadComboBoxCargos();
+
             comboBoxPersonajes.SelectedIndexChanged += ComboBoxPersonajes_selectedIndexChanged; // Vinculación del evento
-            comboBoxTipoRelacion.SelectedIndexChanged += comboBoxTipoParentesco_SelectedIndexChanged; // Vinculación del evento
+            comboBoxParentescoPersonaje1.SelectedIndexChanged += comboBoxParentescoPersonaje1_SelectedIndexChanged; // Vinculación del evento
+            comboBoxTipoParentesco.SelectedIndexChanged += comboBoxTipoRelaccionEsposos_SelectedIndexChanged; // Vinculación del evento
             comboBoxCargos.SelectedIndexChanged += ComboBoxCargos_SelectedIndexChanged; // Vinculación del evento
-            comboBoxTipoParentesco.SelectedIndexChanged += comboBoxTipoParentesco_SelectedIndexChanged; // Vinculación del evento
             buttonGuardaPersonaje.Click += buttonGuardaPersonaje_click; // Vinculación del evento
             buttonGuardarParentesco.Click += buttonGuardarParentesco_Click; // Vinculación del evento
             buttonGuardarCargo.Click += ButtonGuardarCargo_Click; // Vinculación del evento
-            comboBoxParentescoPersonaje1.SelectedIndexChanged += comboBoxParentescoPersonaje1_SelectedIndexChanged; // Vinculación del evento
         }
 
         private void LoadComboBoxPersonajes() // puebla el PersonasComboBox con los nombres y apellidos de los personajes
@@ -200,8 +201,8 @@ namespace Reinos_Cristianos
             }
             return false;
         }
-
-        private void LoadCombosParentesco() // puebla los comboBoxPersonaje1 y comboBoxPersonaje2 con los nombres y apellidos de los personajes
+       // -------------------------------
+        private void LoadCombosPersonajesParentesco() // puebla los comboBoxPersonaje1 y comboBoxPersonaje2 con los nombres y apellidos de los personajes
         {
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
@@ -216,8 +217,8 @@ namespace Reinos_Cristianos
                             while (reader.Read())
                             {
                                 string fullName = $"{reader["id"]}: {reader["nombre"]} {reader["apellido"]}";
-                                comboBoxRelacionado1.Items.Add(fullName);
-                                comboBoxRelacionado2.Items.Add(fullName);
+                                comboBoxParentescoPersonaje1.Items.Add(fullName);
+                                comboBoxParentescoPersonaje2.Items.Add(fullName);
                             }
                         }
                     }
@@ -229,39 +230,13 @@ namespace Reinos_Cristianos
             }
         }
 
-        private void LoadTipoRelacionParentescoComboBox()
-        {
-            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    string query = "SELECT id, nombre FROM tipos_relaciones_familiares";
-                    using (SQLiteCommand command = new SQLiteCommand(query, connection))
-                    {
-                        using (SQLiteDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                string tipoRelacion = $"{reader["id"]}: {reader["nombre"]}";
-                                comboBoxTipoRelacion.Items.Add(tipoRelacion);
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-            }
-        }
 
         private bool ValidarFechas(out DateTime? fechaInicio, out DateTime? fechaFin)
         {
             fechaInicio = null;
             fechaFin = null;
 
-            if (comboBoxTipoRelacion.SelectedItem.ToString().Contains("esposos"))
+            if (comboBoxTipoParentesco.SelectedItem.ToString().Contains("esposos"))
             {
                 if (!DateTime.TryParse(textBoxInicioRelacion.Text, out DateTime tempFechaInicio))
                 {
@@ -287,7 +262,7 @@ namespace Reinos_Cristianos
             return true;
         }
 
-        private void buttonGuardaParentesco_click(object sender, EventArgs e)
+        private void ButtonGuardaRelacionSP_Click(object sender, EventArgs e)
         {
             if (!ValidarFechas(out DateTime? fechaInicio, out DateTime? fechaFin))
             {
@@ -299,7 +274,7 @@ namespace Reinos_Cristianos
                 try
                 {
                     connection.Open();
-                    string query = "INSERT INTO parentescos (personaje_id1, personaje_id2, tipo_relacion_id, fecha_inicio, fecha_fin) VALUES (@personaje_id1, @personaje_id2, @tipo_relacion_id, @fecha_inicio, @fecha_fin)";
+                    string query = "INSERT INTO relaciones_sociopoliticas (personaje_id1, personaje_id2, tipo_relacion_id, fecha_inicio, fecha_fin) VALUES (@personaje_id1, @personaje_id2, @tipo_relacion_id, @fecha_inicio, @fecha_fin)";
                     using (SQLiteCommand command = new SQLiteCommand(query, connection))
                     {
                         int personajeId1 = int.Parse(comboBoxRelacionado1.SelectedItem.ToString().Split(':')[0]);
@@ -405,6 +380,8 @@ namespace Reinos_Cristianos
                 }
             }
         }
+
+        //------------------------------- cargos
 
         private void LoadComboBoxCargoPersonaje()
         {
@@ -539,6 +516,7 @@ namespace Reinos_Cristianos
             }
         }
 
+//-------------------------------  parientes
         private void LoadParientesComboBox() // puebla los comboBoxPersonaje1 y comboBoxPersonaje2 con los nombres y apellidos de los personajes
         {
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
@@ -567,7 +545,7 @@ namespace Reinos_Cristianos
             }
         }
 
-        private void LoadTipoParentescoComboBox()
+        private void LoadTiposParentescoComboBox()
         {
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
@@ -637,7 +615,7 @@ namespace Reinos_Cristianos
                     {
                         comboBoxParentescos.Visible = true;
                         comboBoxParentescos.DroppedDown = true; // Despliega el ComboBox automáticamente
-                       // MessageBox.Show("Parentescos cargados correctamente.");
+                                                                // MessageBox.Show("Parentescos cargados correctamente.");
                     }
                     else
                     {
@@ -652,7 +630,7 @@ namespace Reinos_Cristianos
             }
         }
 
-        private void comboBoxTipoParentesco_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxTipoRelaccionEsposos_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxTipoParentesco.SelectedItem.ToString().Contains("esposos"))
             {
@@ -785,6 +763,8 @@ namespace Reinos_Cristianos
             }
         }
 
+        //------------------------------- relaciones sociales y políticas
+
         private void LoadRelativosComboBox() // puebla los comboBoxPersonaje1 y comboBoxPersonaje2 con los nombres y apellidos de los personajes
         {
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
@@ -813,6 +793,94 @@ namespace Reinos_Cristianos
             }
         }
 
+        private void LoadTipoRelacionComboBox()
+        {
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string query = "SELECT id, nombre FROM tipos_relaciones_sociopoliticas";
+                    using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                    {
+                        using (SQLiteDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string tipoRelacion = $"{reader["id"]}: {reader["nombre"]}";
+                                comboBoxTipoRelacion.Items.Add(tipoRelacion);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+        }
+
+        private void ButtonGuardarRelacionSP_Click(object sender, EventArgs e)
+        {
+            if (!ValidarFechas(out DateTime? fechaInicio, out DateTime? fechaFin))
+            {
+                return;
+            }
+
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string query = "INSERT INTO relaciones_sociopoliticas (personaje_id1, personaje_id2, tipo_relacion_id, fecha_inicio, fecha_fin) VALUES (@personaje_id1, @personaje_id2, @tipo_relacion_id, @fecha_inicio, @fecha_fin)";
+                    using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                    {
+                        int personajeId1 = int.Parse(comboBoxRelacionado1.SelectedItem.ToString().Split(':')[0]);
+                        int personajeId2 = int.Parse(comboBoxRelacionado2.SelectedItem.ToString().Split(':')[0]);
+                        int tipoRelacionId = int.Parse(comboBoxTipoRelacion.SelectedItem.ToString().Split(':')[0]);
+
+                        command.Parameters.AddWithValue("@personaje_id1", personajeId1);
+                        command.Parameters.AddWithValue("@personaje_id2", personajeId2);
+                        command.Parameters.AddWithValue("@tipo_relacion_id", tipoRelacionId);
+
+                        if (fechaInicio.HasValue)
+                        {
+                            command.Parameters.AddWithValue("@fecha_inicio", fechaInicio.Value);
+                        }
+                        else
+                        {
+                            command.Parameters.AddWithValue("@fecha_inicio", DBNull.Value);
+                        }
+
+                        if (fechaFin.HasValue)
+                        {
+                            command.Parameters.AddWithValue("@fecha_fin", fechaFin.Value);
+                        }
+                        else
+                        {
+                            command.Parameters.AddWithValue("@fecha_fin", DBNull.Value);
+                        }
+
+                        command.ExecuteNonQuery();
+                    }
+
+                    // Consulta para obtener la relación recíproca
+                    string queryReciproca = "SELECT reciproca FROM tipos_relaciones_sociopoliticas WHERE id = @tipo_relacion_id";
+                    using (SQLiteCommand commandReciproca = new SQLiteCommand(queryReciproca, connection))
+                    {
+                        int personajeId1 = int.Parse(comboBoxRelacionado1.SelectedItem.ToString().Split(':')[0]);
+                        int personajeId2 = int.Parse(comboBoxRelacionado2.SelectedItem.ToString().Split(':')[0]);
+                        int tipoRelacionId = int.Parse(comboBoxTipoRelacion.SelectedItem.ToString().Split(':')[0]);
+
+                        commandReciproca.Parameters.AddWithValue("@tipo_relacion_id", tipoRelacionId);
+                        object result = commandReciproca.ExecuteScalar();
+
+                        if (
+
     }
 }
+
+
+
+
 

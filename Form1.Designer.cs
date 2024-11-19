@@ -41,7 +41,7 @@
             this.comboBoxRelacionado2 = new System.Windows.Forms.ComboBox();
             this.comboBoxTipoRelacion = new System.Windows.Forms.ComboBox();
             this.buttonGuardaPersonaje = new System.Windows.Forms.Button();
-            this.buttonGuardaRelacion = new System.Windows.Forms.Button();
+            this.buttonGuardaRelacionSP = new System.Windows.Forms.Button();
             this.textBoxInicioRelacion = new System.Windows.Forms.TextBox();
             this.textBoxFinRelacion = new System.Windows.Forms.TextBox();
             this.comboBoxCargos = new System.Windows.Forms.ComboBox();
@@ -74,6 +74,7 @@
             this.comboBoxPersonajes.Name = "comboBoxPersonajes";
             this.comboBoxPersonajes.Size = new System.Drawing.Size(115, 21);
             this.comboBoxPersonajes.TabIndex = 0;
+            this.comboBoxPersonajes.Text = "comboBoxPersonajes";
             // 
             // labelPersonajes
             // 
@@ -90,6 +91,7 @@
             this.textBoxNombrePer.Name = "textBoxNombrePer";
             this.textBoxNombrePer.Size = new System.Drawing.Size(115, 20);
             this.textBoxNombrePer.TabIndex = 2;
+            this.textBoxNombrePer.Text = "textBoxNombrePer";
             // 
             // textBoxApellidoPer
             // 
@@ -137,26 +139,29 @@
             // comboBoxRelacionado1
             // 
             this.comboBoxRelacionado1.FormattingEnabled = true;
-            this.comboBoxRelacionado1.Location = new System.Drawing.Point(165, 395);
+            this.comboBoxRelacionado1.Location = new System.Drawing.Point(226, 396);
             this.comboBoxRelacionado1.Name = "comboBoxRelacionado1";
-            this.comboBoxRelacionado1.Size = new System.Drawing.Size(134, 21);
+            this.comboBoxRelacionado1.Size = new System.Drawing.Size(169, 21);
             this.comboBoxRelacionado1.TabIndex = 9;
+            this.comboBoxRelacionado1.Text = "comboBoxRelacionado1";
             // 
             // comboBoxRelacionado2
             // 
             this.comboBoxRelacionado2.FormattingEnabled = true;
-            this.comboBoxRelacionado2.Location = new System.Drawing.Point(165, 419);
+            this.comboBoxRelacionado2.Location = new System.Drawing.Point(226, 420);
             this.comboBoxRelacionado2.Name = "comboBoxRelacionado2";
-            this.comboBoxRelacionado2.Size = new System.Drawing.Size(134, 21);
+            this.comboBoxRelacionado2.Size = new System.Drawing.Size(169, 21);
             this.comboBoxRelacionado2.TabIndex = 10;
+            this.comboBoxRelacionado2.Text = "comboBoxRelacionado2";
             // 
             // comboBoxTipoRelacion
             // 
             this.comboBoxTipoRelacion.FormattingEnabled = true;
-            this.comboBoxTipoRelacion.Location = new System.Drawing.Point(165, 443);
+            this.comboBoxTipoRelacion.Location = new System.Drawing.Point(226, 444);
             this.comboBoxTipoRelacion.Name = "comboBoxTipoRelacion";
-            this.comboBoxTipoRelacion.Size = new System.Drawing.Size(134, 21);
+            this.comboBoxTipoRelacion.Size = new System.Drawing.Size(169, 21);
             this.comboBoxTipoRelacion.TabIndex = 11;
+            this.comboBoxTipoRelacion.Text = "comboBoxTipoRelacion";
             // 
             // buttonGuardaPersonaje
             // 
@@ -167,35 +172,37 @@
             this.buttonGuardaPersonaje.Text = "Insertar";
             this.buttonGuardaPersonaje.UseVisualStyleBackColor = true;
             // 
-            // buttonGuardaRelacion
+            // buttonGuardaRelacionSP
             // 
-            this.buttonGuardaRelacion.Location = new System.Drawing.Point(165, 470);
-            this.buttonGuardaRelacion.Name = "buttonGuardaRelacion";
-            this.buttonGuardaRelacion.Size = new System.Drawing.Size(134, 33);
-            this.buttonGuardaRelacion.TabIndex = 13;
-            this.buttonGuardaRelacion.Text = "Guarda relación";
-            this.buttonGuardaRelacion.UseVisualStyleBackColor = true;
+            this.buttonGuardaRelacionSP.Location = new System.Drawing.Point(226, 471);
+            this.buttonGuardaRelacionSP.Name = "buttonGuardaRelacionSP";
+            this.buttonGuardaRelacionSP.Size = new System.Drawing.Size(169, 33);
+            this.buttonGuardaRelacionSP.TabIndex = 13;
+            this.buttonGuardaRelacionSP.Text = "Guarda relación SP";
+            this.buttonGuardaRelacionSP.UseVisualStyleBackColor = true;
             // 
             // textBoxInicioRelacion
             // 
-            this.textBoxInicioRelacion.Location = new System.Drawing.Point(165, 508);
+            this.textBoxInicioRelacion.Location = new System.Drawing.Point(226, 509);
             this.textBoxInicioRelacion.Name = "textBoxInicioRelacion";
-            this.textBoxInicioRelacion.Size = new System.Drawing.Size(134, 20);
+            this.textBoxInicioRelacion.Size = new System.Drawing.Size(169, 20);
             this.textBoxInicioRelacion.TabIndex = 14;
+            this.textBoxInicioRelacion.Text = "textBoxInicioRelacion";
             this.textBoxInicioRelacion.Visible = false;
             // 
             // textBoxFinRelacion
             // 
-            this.textBoxFinRelacion.Location = new System.Drawing.Point(165, 532);
+            this.textBoxFinRelacion.Location = new System.Drawing.Point(226, 533);
             this.textBoxFinRelacion.Name = "textBoxFinRelacion";
-            this.textBoxFinRelacion.Size = new System.Drawing.Size(134, 20);
+            this.textBoxFinRelacion.Size = new System.Drawing.Size(169, 20);
             this.textBoxFinRelacion.TabIndex = 15;
+            this.textBoxFinRelacion.Text = "textBoxFinRelacion";
             this.textBoxFinRelacion.Visible = false;
             // 
             // comboBoxCargos
             // 
             this.comboBoxCargos.FormattingEnabled = true;
-            this.comboBoxCargos.Location = new System.Drawing.Point(165, 38);
+            this.comboBoxCargos.Location = new System.Drawing.Point(226, 39);
             this.comboBoxCargos.Name = "comboBoxCargos";
             this.comboBoxCargos.Size = new System.Drawing.Size(134, 21);
             this.comboBoxCargos.TabIndex = 16;
@@ -203,7 +210,7 @@
             // labelRelPersonal
             // 
             this.labelRelPersonal.AutoSize = true;
-            this.labelRelPersonal.Location = new System.Drawing.Point(165, 377);
+            this.labelRelPersonal.Location = new System.Drawing.Point(226, 378);
             this.labelRelPersonal.Name = "labelRelPersonal";
             this.labelRelPersonal.Size = new System.Drawing.Size(75, 13);
             this.labelRelPersonal.TabIndex = 17;
@@ -212,7 +219,7 @@
             // labelCargos
             // 
             this.labelCargos.AutoSize = true;
-            this.labelCargos.Location = new System.Drawing.Point(165, 22);
+            this.labelCargos.Location = new System.Drawing.Point(226, 23);
             this.labelCargos.Name = "labelCargos";
             this.labelCargos.Size = new System.Drawing.Size(40, 13);
             this.labelCargos.TabIndex = 18;
@@ -220,21 +227,21 @@
             // 
             // textBoxCargo
             // 
-            this.textBoxCargo.Location = new System.Drawing.Point(165, 63);
+            this.textBoxCargo.Location = new System.Drawing.Point(226, 64);
             this.textBoxCargo.Name = "textBoxCargo";
             this.textBoxCargo.Size = new System.Drawing.Size(134, 20);
             this.textBoxCargo.TabIndex = 19;
             // 
             // textBoxCargoDescripcion
             // 
-            this.textBoxCargoDescripcion.Location = new System.Drawing.Point(165, 87);
+            this.textBoxCargoDescripcion.Location = new System.Drawing.Point(226, 88);
             this.textBoxCargoDescripcion.Name = "textBoxCargoDescripcion";
             this.textBoxCargoDescripcion.Size = new System.Drawing.Size(134, 20);
             this.textBoxCargoDescripcion.TabIndex = 20;
             // 
             // buttonGuardarCargo
             // 
-            this.buttonGuardarCargo.Location = new System.Drawing.Point(165, 118);
+            this.buttonGuardarCargo.Location = new System.Drawing.Point(226, 119);
             this.buttonGuardarCargo.Name = "buttonGuardarCargo";
             this.buttonGuardarCargo.Size = new System.Drawing.Size(134, 21);
             this.buttonGuardarCargo.TabIndex = 21;
@@ -243,7 +250,7 @@
             // 
             // buttonGuardarPersonajeCargo
             // 
-            this.buttonGuardarPersonajeCargo.Location = new System.Drawing.Point(165, 329);
+            this.buttonGuardarPersonajeCargo.Location = new System.Drawing.Point(226, 330);
             this.buttonGuardarPersonajeCargo.Name = "buttonGuardarPersonajeCargo";
             this.buttonGuardarPersonajeCargo.Size = new System.Drawing.Size(134, 32);
             this.buttonGuardarPersonajeCargo.TabIndex = 26;
@@ -253,14 +260,14 @@
             // comboBoxCargoPersonaje
             // 
             this.comboBoxCargoPersonaje.FormattingEnabled = true;
-            this.comboBoxCargoPersonaje.Location = new System.Drawing.Point(165, 222);
+            this.comboBoxCargoPersonaje.Location = new System.Drawing.Point(226, 223);
             this.comboBoxCargoPersonaje.Name = "comboBoxCargoPersonaje";
             this.comboBoxCargoPersonaje.Size = new System.Drawing.Size(134, 21);
             this.comboBoxCargoPersonaje.TabIndex = 25;
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(165, 277);
+            this.textBox7.Location = new System.Drawing.Point(226, 278);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(134, 20);
             this.textBox7.TabIndex = 27;
@@ -268,7 +275,7 @@
             // comboBoxPersonajeCargo
             // 
             this.comboBoxPersonajeCargo.FormattingEnabled = true;
-            this.comboBoxPersonajeCargo.Location = new System.Drawing.Point(165, 194);
+            this.comboBoxPersonajeCargo.Location = new System.Drawing.Point(226, 195);
             this.comboBoxPersonajeCargo.Name = "comboBoxPersonajeCargo";
             this.comboBoxPersonajeCargo.Size = new System.Drawing.Size(134, 21);
             this.comboBoxPersonajeCargo.TabIndex = 24;
@@ -276,7 +283,7 @@
             // labelCargoPersonaje
             // 
             this.labelCargoPersonaje.AutoSize = true;
-            this.labelCargoPersonaje.Location = new System.Drawing.Point(165, 174);
+            this.labelCargoPersonaje.Location = new System.Drawing.Point(226, 175);
             this.labelCargoPersonaje.Name = "labelCargoPersonaje";
             this.labelCargoPersonaje.Size = new System.Drawing.Size(105, 13);
             this.labelCargoPersonaje.TabIndex = 23;
@@ -284,14 +291,14 @@
             // 
             // textBox9
             // 
-            this.textBox9.Location = new System.Drawing.Point(165, 303);
+            this.textBox9.Location = new System.Drawing.Point(226, 304);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(134, 20);
             this.textBox9.TabIndex = 29;
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(165, 250);
+            this.textBox8.Location = new System.Drawing.Point(226, 251);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(134, 20);
             this.textBox8.TabIndex = 28;
@@ -309,23 +316,25 @@
             // 
             this.textBoxParentescoFecha_fin.Location = new System.Drawing.Point(6, 563);
             this.textBoxParentescoFecha_fin.Name = "textBoxParentescoFecha_fin";
-            this.textBoxParentescoFecha_fin.Size = new System.Drawing.Size(121, 20);
+            this.textBoxParentescoFecha_fin.Size = new System.Drawing.Size(195, 20);
             this.textBoxParentescoFecha_fin.TabIndex = 36;
+            this.textBoxParentescoFecha_fin.Text = "textBoxParentescoFecha_fin";
             this.textBoxParentescoFecha_fin.Visible = false;
             // 
             // textBoxParentescoFecha_inicio
             // 
             this.textBoxParentescoFecha_inicio.Location = new System.Drawing.Point(6, 535);
             this.textBoxParentescoFecha_inicio.Name = "textBoxParentescoFecha_inicio";
-            this.textBoxParentescoFecha_inicio.Size = new System.Drawing.Size(121, 20);
+            this.textBoxParentescoFecha_inicio.Size = new System.Drawing.Size(195, 20);
             this.textBoxParentescoFecha_inicio.TabIndex = 35;
+            this.textBoxParentescoFecha_inicio.Text = "textBoxParentescoFecha_inicio";
             this.textBoxParentescoFecha_inicio.Visible = false;
             // 
             // buttonGuardarParentesco
             // 
             this.buttonGuardarParentesco.Location = new System.Drawing.Point(6, 469);
             this.buttonGuardarParentesco.Name = "buttonGuardarParentesco";
-            this.buttonGuardarParentesco.Size = new System.Drawing.Size(121, 21);
+            this.buttonGuardarParentesco.Size = new System.Drawing.Size(195, 21);
             this.buttonGuardarParentesco.TabIndex = 34;
             this.buttonGuardarParentesco.Text = "GuardarParentesco";
             this.buttonGuardarParentesco.UseVisualStyleBackColor = true;
@@ -335,32 +344,36 @@
             this.comboBoxTipoParentesco.FormattingEnabled = true;
             this.comboBoxTipoParentesco.Location = new System.Drawing.Point(6, 442);
             this.comboBoxTipoParentesco.Name = "comboBoxTipoParentesco";
-            this.comboBoxTipoParentesco.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxTipoParentesco.Size = new System.Drawing.Size(195, 21);
             this.comboBoxTipoParentesco.TabIndex = 33;
+            this.comboBoxTipoParentesco.Text = "comboBoxTipoParentesco";
             // 
             // comboBoxParentescoPersonaje2
             // 
             this.comboBoxParentescoPersonaje2.FormattingEnabled = true;
             this.comboBoxParentescoPersonaje2.Location = new System.Drawing.Point(6, 414);
             this.comboBoxParentescoPersonaje2.Name = "comboBoxParentescoPersonaje2";
-            this.comboBoxParentescoPersonaje2.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxParentescoPersonaje2.Size = new System.Drawing.Size(195, 21);
             this.comboBoxParentescoPersonaje2.TabIndex = 32;
+            this.comboBoxParentescoPersonaje2.Text = "comboBoxParentescoPersonaje2";
             // 
             // comboBoxParentescoPersonaje1
             // 
             this.comboBoxParentescoPersonaje1.FormattingEnabled = true;
             this.comboBoxParentescoPersonaje1.Location = new System.Drawing.Point(6, 386);
             this.comboBoxParentescoPersonaje1.Name = "comboBoxParentescoPersonaje1";
-            this.comboBoxParentescoPersonaje1.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxParentescoPersonaje1.Size = new System.Drawing.Size(195, 21);
             this.comboBoxParentescoPersonaje1.TabIndex = 31;
+            this.comboBoxParentescoPersonaje1.Text = "comboBoxParentescoPersonaje1";
             // 
             // comboBoxParentescos
             // 
             this.comboBoxParentescos.FormattingEnabled = true;
-            this.comboBoxParentescos.Location = new System.Drawing.Point(-2, 508);
+            this.comboBoxParentescos.Location = new System.Drawing.Point(6, 496);
             this.comboBoxParentescos.Name = "comboBoxParentescos";
-            this.comboBoxParentescos.Size = new System.Drawing.Size(161, 21);
+            this.comboBoxParentescos.Size = new System.Drawing.Size(195, 21);
             this.comboBoxParentescos.TabIndex = 30;
+            this.comboBoxParentescos.Text = "comboBoxParentescos";
             this.comboBoxParentescos.Visible = false;
             // 
             // Form1
@@ -391,7 +404,7 @@
             this.Controls.Add(this.comboBoxCargos);
             this.Controls.Add(this.textBoxFinRelacion);
             this.Controls.Add(this.textBoxInicioRelacion);
-            this.Controls.Add(this.buttonGuardaRelacion);
+            this.Controls.Add(this.buttonGuardaRelacionSP);
             this.Controls.Add(this.buttonGuardaPersonaje);
             this.Controls.Add(this.comboBoxTipoRelacion);
             this.Controls.Add(this.comboBoxRelacionado2);
@@ -427,7 +440,7 @@
         private System.Windows.Forms.ComboBox comboBoxRelacionado2;
         private System.Windows.Forms.ComboBox comboBoxTipoRelacion;
         private System.Windows.Forms.Button buttonGuardaPersonaje;
-        private System.Windows.Forms.Button buttonGuardaRelacion;
+        private System.Windows.Forms.Button buttonGuardaRelacionSP;
         private System.Windows.Forms.TextBox textBoxInicioRelacion;
         private System.Windows.Forms.TextBox textBoxFinRelacion;
         private System.Windows.Forms.ComboBox comboBoxCargos;
